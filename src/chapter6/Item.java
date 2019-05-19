@@ -36,6 +36,6 @@ public class Item {
 		Item itemTwo = new Item(2,"Orange",20,5);
 		
 		itemOne.show();
-		itemTwo.show();
+		itemTwo.show(); 
 	}
 }
