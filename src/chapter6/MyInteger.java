@@ -35,7 +35,7 @@ public class MyInteger {
 	}
 	public String toString()
 	{
-		System.out.println("To String called");
+		//System.out.println("To String called");
 		return this.value+"";
 	}
 	public static void main(String[]args)
