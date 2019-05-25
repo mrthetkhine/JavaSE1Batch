@@ -10,10 +10,12 @@ public class ReferenceSemantic {
 		System.out.println("B is "+b);
 		
 		a = b;
-		a.value = 100;
+		//a.value = 100;
 		
 		System.out.println("A is "+a);
 		System.out.println("B is "+b);
+		
+		
 	}
 
 }
