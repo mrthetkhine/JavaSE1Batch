@@ -16,7 +16,7 @@ public class ExceptionDemo {
 		{
 			e.printStackTrace();
 			System.out.println(e.getMessage());
-		}
+		} 
 		catch(Exception e)
 		{
 			e.printStackTrace();

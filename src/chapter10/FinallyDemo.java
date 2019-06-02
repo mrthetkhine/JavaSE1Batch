@@ -18,7 +18,7 @@ public class FinallyDemo {
 			System.out.println("Hey");
 			throw new Exception(" Finally Bla Blah");
 		}
-	}
+	} 
 	public static void main(String args[])throws Exception
 	{
 		System.out.println(method());

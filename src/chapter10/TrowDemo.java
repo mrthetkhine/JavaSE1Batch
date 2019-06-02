@@ -12,7 +12,7 @@ public class TrowDemo {
 		{
 			return a /b;
 		}
-	}
+	} 
 	public static void main(String[]args)
 	{
 		try

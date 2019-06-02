@@ -45,7 +45,7 @@ public class CustomException {
 		try
 		{
 			method("notfound");
-		}
+		} 
 		catch(InvalidAccessException e)
 		{
 			System.out.println(e);
