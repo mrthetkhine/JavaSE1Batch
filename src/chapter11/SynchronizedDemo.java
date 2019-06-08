@@ -1,29 +1,77 @@
 package chapter11;
 
-class MyUnsyncThread extends Thread
+class Counter
 {
-	transient static int data = 0;
+	int counter = 0;
+	
+	void inc()
+	{
+		counter = counter +1;
+	}
+	void dec()
+	{
+		counter = counter -1;
+	}
+	int getCount()
+	{
+		return counter;
+	}
+}
+class IncThread extends Thread
+{
+	Counter counter ;
 	String name ;
 	
-	MyUnsyncThread(String name)
+	IncThread(String name,Counter counter)
 	{
 		this.name = name;
+		this.counter = counter;
 	}
-	static void inc()
-	{
-		MyUnsyncThread.data++;
-	}
-	static void dec()
-	{
-		MyUnsyncThread.data --;
-	}
+	
 	public void run()
 	{
-		for(int i=0; i< 50;i++)
-		{
-			inc();
-			dec();
-			inc();
+		for(int i=0; i< 15;i++)
+		{	
+			counter.inc();
+			try
+			{
+				Thread.sleep(100);
+				//System.out.println("Sleep inc");
+			}
+			catch(Exception e)
+			{
+				
+			}
+			
+		}
+	}
+
+}
+class DecThread extends Thread
+{
+	Counter counter ;
+	String name ;
+	
+	DecThread(String name,Counter counter)
+	{
+		this.name = name;
+		this.counter = counter;
+	}
+	
+	public void run()
+	{
+		for(int i=0; i< 15;i++)
+		{	
+			counter.dec();
+			try
+			{
+				Thread.sleep(100);
+				//System.out.println("Sleep dec");
+			}
+			catch(Exception e)
+			{
+				
+			}
 		}
 	}
 	
@@ -33,8 +81,9 @@ public class SynchronizedDemo {
 
 	public static void main(String[]args)
 	{
-		MyUnsyncThread t1 = new MyUnsyncThread("t1");
-		MyUnsyncThread t2 = new MyUnsyncThread("t2");
+		Counter counter = new Counter();
+		IncThread t1 = new IncThread("t1",counter);
+		DecThread t2 = new DecThread("t2",counter);
 		
 		t1.start();
 		t2.start();
@@ -47,6 +96,6 @@ public class SynchronizedDemo {
 		{
 			e.printStackTrace();
 		}
-		System.out.println("Data is "+MyUnsyncThread.data);
+		System.out.println("Data is "+counter.getCount());
 	}
 }
