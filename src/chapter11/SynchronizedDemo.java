@@ -32,7 +32,10 @@ class IncThread extends Thread
 	{
 		for(int i=0; i< 15;i++)
 		{	
-			counter.inc();
+			synchronized(counter)
+			{
+				counter.inc();
+			}
 			try
 			{
 				Thread.sleep(100);
@@ -62,7 +65,11 @@ class DecThread extends Thread
 	{
 		for(int i=0; i< 15;i++)
 		{	
-			counter.dec();
+			synchronized(counter)
+			{
+				counter.dec();
+			}
+			
 			try
 			{
 				Thread.sleep(100);
