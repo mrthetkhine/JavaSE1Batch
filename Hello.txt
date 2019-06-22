@@ -1,0 +1,29 @@
+interface DefaultInterface
+{
+	void method();
+	
+	default void method()
+	{
+		System.out.println("Default method");
+	}
+}
+class Impl implements DefaultInterface
+{
+
+	/*
+	@Override
+	public void method() {
+		// TODO Auto-generated method stub
+		System.out.println("Method impl");
+		
+	}
+	*/
+	
+}
+public class DefaultImplmenetation {
+	public static void main(String[]args)
+	{
+		DefaultInterface def = new Impl();
+		def.method();
+	}
+}
