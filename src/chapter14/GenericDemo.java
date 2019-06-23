@@ -26,6 +26,7 @@ public class GenericDemo {
 		Generic<Integer> genericInteger = new Generic<Integer>(21);
 		Integer obj2 = genericInteger.getObj();
 		genericInteger.showType();
+		System.out.println(genericInteger.getClass());
 	}
 
 }
